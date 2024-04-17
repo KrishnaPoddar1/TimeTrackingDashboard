@@ -1,0 +1,300 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
+:root {
+    --primary-blue: hsl(246, 80%, 60%);
+    --primary-lightRedWork: hsl(15, 100%, 70%);
+    --primary-softBluePlay: hsl(195, 74%, 62%);
+    --primary-lightRedStudy: hsl(348, 100%, 68%);
+    --primary-limeGreenExercise: hsl(145, 58%, 55%);
+    --primary-violetSocial: hsl(264, 64%, 52%);
+    --primary-softOrangeSelfCare: hsl(43, 84%, 65%);
+
+    --neutral-veryDarkBlue: hsl(226, 43%, 10%);
+    --neutral-darkBlue: hsl(235, 46%, 20%);
+    --neutral-desaturatedBlue: hsl(235, 45%, 61%);
+    --neutral-paleBlue: hsl(236, 100%, 87%);
+
+    --fontsize-cardTitles : 18px;
+    --fontfamily: "Rubik", sans-serif;
+    --fontweight-light : 300;
+    --fontweight-normal: 400;
+    --fontweight-bold: 500;
+
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--neutral-veryDarkBlue);
+    font-family: var(--fontfamily);
+}
+
+.title, h2 {
+    font-size: xx-large;
+    font-weight: var(--fontweight-normal);
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.card {
+    
+    border-radius: 1rem;
+    width: 25rem;
+    margin: 1rem auto;
+     
+}
+
+#person-info {
+    background-color: var(--neutral-darkBlue);
+}
+
+.person {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    border-bottom: 1px solid black;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    background-color: var(--neutral-desaturatedBlue);
+}
+
+.person img {
+    width: 30%;
+    height: auto;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+
+.text {
+    color: var(--neutral-paleBlue);
+}
+
+.text h1 {
+    color: white;
+    margin-top: -0.5rem;
+    font-weight: 300;
+}
+
+.day {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 5rem;
+    color: var(--neutral-paleBlue);
+    cursor: pointer;
+}
+
+.active {
+    color: white;
+}
+
+#Daily:active, #Weekly:active, #Monthly:active, #Daily:hover, #Weekly:hover, #Monthly:hover {
+    color: white;
+}
+
+
+#Work {
+    background-color: var(--primary-lightRedWork);  
+}
+
+#Work .img-wrapper {
+    background-image: url(images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Play {
+    background-color: var(--primary-softBluePlay);
+}
+
+#Play .img-wrapper {
+    background-image: url(images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Study {
+    background-color: var(--primary-lightRedStudy);
+}
+
+#Study .img-wrapper {
+    background-image: url(images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Exercise {
+    background-color: var(--primary-limeGreenExercise);
+}
+
+#Exercise .img-wrapper {
+    background-image: url(images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Social {
+    background-color: var(--primary-violetSocial);
+}
+
+#Social .img-wrapper {
+    background-image: url(images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Self\ Care {
+    background-color: var(--primary-softOrangeSelfCare);
+}
+
+#Self\ Care .img-wrapper {
+    background-image: url(images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-position: 18rem;
+}
+
+#Work .text-wrapper,#Play .text-wrapper,#Study .text-wrapper,#Exercise .text-wrapper,#Social .text-wrapper,
+#Self\ Care .text-wrapper{
+    background-color: var(--neutral-darkBlue);
+    color: white;
+}
+
+.img-wrapper {
+    height: 3rem;
+}
+
+.text-wrapper {
+    border-top: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.time {
+    margin-top: -3rem;
+}
+
+.time p{
+    color: var(--neutral-paleBlue);
+}
+
+.heading, .time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.heading span {
+    color: var(--neutral-paleBlue);
+    font-size: xx-large;
+}
+
+@media screen and (min-width: 768px) {
+    .container-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns:  1fr 1fr 1fr 1fr ;
+        grid-template-rows: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    #person-info {
+        grid-column: 1 / 2;
+        grid-row: 1 / span 2;
+    }
+
+    #Work {
+        grid-area: 1/2/2/3;
+        align-self: flex-end;
+    }
+
+    #Play{
+        grid-area: 1/3/2/4;
+        align-self: flex-end;
+    }
+
+    #Study {
+        grid-area: 1/4/2/5;
+        align-self: flex-end;
+    }
+
+    #Exercise {
+        grid-area: 2/2/3/3;
+        align-self: flex-start;
+    } 
+
+    #Social {
+        grid-area: 2/3/3/4;
+        align-self: flex-start;
+    }
+
+    #Self\ Care{
+        grid-area: 2/4/3/5;
+        align-self: flex-start;
+    }
+
+    .person {
+        height: 29rem;
+        flex-direction: column;
+    }
+
+    .person img{
+        width: 40%;
+        height: 40%;
+        margin-top: 1rem;
+    }
+    
+    .person h1 {
+        font-size: 4rem;
+    }
+
+    .day {
+        height: 10rem;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+    .heading {
+        margin-top: -2.5rem;
+    }
+    .time {
+        flex-direction: column;
+        align-items: flex-start;
+        
+    }
+
+    .time h2 {
+        font-size: 4rem;
+        margin-top: 0.5rem;
+        font-weight: var(--fontweight-normal);
+    }
+
+    .time p{
+        margin-top: -2rem;
+    }
+}
+
+.attribution { 
+    font-size: 11px; 
+    text-align: center; 
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%); 
+}
