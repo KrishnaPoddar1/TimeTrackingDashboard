@@ -180,6 +180,10 @@ body {
     padding: 1rem;
 }
 
+.text-wrapper:hover {
+    background-color: var(--neutral-desaturatedBlue) !important;
+}
+
 .time {
     margin-top: -3rem;
 }

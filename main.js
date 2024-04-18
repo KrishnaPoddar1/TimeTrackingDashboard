@@ -1,11 +1,11 @@
 // Connect the Json file to the javascript 
 async function populate() {
-    const response = await fetch('/data.json');
+    const response = await fetch('./data.json');
     const data = await response.json();
     
     //console.log(data);
     populateCard(data);
-    nextFunc(data);
+    changeCardData(data);
   }
   
 // Default value on the page for each field or card  
@@ -40,7 +40,7 @@ function populateCard(obj) {
 
 }
 
-function nextFunc(data) {
+function changeCardData(data) {
     
 //const data=populate();
 const day = document.getElementsByClassName("day");
@@ -56,26 +56,30 @@ day[0].addEventListener('click',function (e) {
         const card = document.getElementById(element.title);
         //console.log(card);
         const daytime = card.getElementsByClassName('time');
-        //const val = `timeframes.${clickedId}.current`;
-        //const value = element[val];
+        const currentval = `${element.timeframes[clickedId].current}hrs`;
+        const previousval = `${element.timeframes[clickedId].previous}hrs`;
+        daytime[0].firstElementChild.textContent = currentval;
+        daytime[0].querySelector('p span ').nextSibling.nodeValue = previousval;
+        //console.log(currentval);
+        
         if(clickedId == "daily"){
-            daytime[0].firstElementChild.textContent = element.timeframes.daily.current+"hrs"; 
+            //daytime[0].firstElementChild.textContent = element.timeframes.daily.current+"hrs"; 
             daytime[0].lastElementChild.firstElementChild.textContent = "Yesterday - ";
-            daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.daily.previous+"hrs";
+            //daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.daily.previous+"hrs";
             daily1.classList.add('active');
             weekly1.classList.remove('active');
             monthly1.classList.remove('active');
         }else if(clickedId == "weekly"){
-            daytime[0].firstElementChild.textContent = element.timeframes.weekly.current+"hrs";
+            //daytime[0].firstElementChild.textContent = element.timeframes.weekly.current+"hrs";
             daytime[0].lastElementChild.firstElementChild.textContent = "Last Week - ";
-            daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.weekly.previous+"hrs";
+            //daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.weekly.previous+"hrs";
             daily1.classList.remove('active');
             weekly1.classList.add('active');
             monthly1.classList.remove('active');
         }else if(clickedId == "monthly"){
-            daytime[0].firstElementChild.textContent = element.timeframes.monthly.current+"hrs";
+            //daytime[0].firstElementChild.textContent = element.timeframes.monthly.current+"hrs";
             daytime[0].lastElementChild.firstElementChild.textContent = "Last Month - ";
-            daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.monthly.previous+"hrs";
+            //daytime[0].querySelector('p span ').nextSibling.nodeValue = element.timeframes.monthly.previous+"hrs";
             daily1.classList.remove('active');
             weekly1.classList.remove('active');
             monthly1.classList.add('active');
@@ -93,4 +97,5 @@ day[0].addEventListener('click',function (e) {
 
 }
 
-populate();
+document.addEventListener("DOMContentLoaded",populate);
+//populate();
